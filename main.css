@@ -1,3 +1,31 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?nuaj1e');
+    src:  url('./icomoon/fonts/icomoon.eot') format('embedded-opentype'),
+      url('./icomoon/fonts/icomoon.ttf') format('truetype'),
+      url('./icomoon/fonts/icomoon.woff') format('woff'),
+      url('./icomoon/fonts/icomoon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+.contacts__social-github,
+.contacts__social-linkedin,
+.contacts__social-fb {
+   
+    font-family: 'icomoon';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+   
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -41,6 +69,7 @@ header>div {
 .contacts {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+    position: relative;
 }
 
 .container {
@@ -99,6 +128,33 @@ a {
     transform: rotate(45deg)
     
 }
+.contacts__social {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;padding: 0;
+}
+.contacts__social li {
+    margin: 0 15px;
+}
+
+.contacts__social-github:before {
+    content: "\eab0";
+  }
+.contacts__social-linkedin::before{
+    content: "\eac9";
+}
+.contacts__social-fb::before{
+    content: "\ea91";
+}
+.contacts__social li{
+    transition: all .3s ease-in-out;
+}
+.contacts__social li:hover{
+    transform: scale(1.2);
+}
 
 @media(max-width:1265px) {
     header {
@@ -107,8 +163,14 @@ a {
         justify-items: center;
         text-align: center;
     }
+    .contacts__social {
+        bottom: 0;
+        left: 50%;
+        transform:translate(-50%, 100%);
+    }
 
 }
+
 
 @media(max-width:992px) {
     .wrapper {
